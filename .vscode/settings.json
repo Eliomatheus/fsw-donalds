@@ -12,6 +12,10 @@
   ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
+<<<<<<< HEAD
   },
   "totvsLanguageServer.welcomePage": false
+=======
+  }
+>>>>>>> 2896b97af4bbd8c44fa69a435bb39d128241572c
 }
