@@ -33,10 +33,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "postcss": "^8",
     "prettier-plugin-tailwindcss": "^0.6.5",
-<<<<<<< HEAD
     "prisma": "^6.4.1",
-=======
->>>>>>> 2896b97af4bbd8c44fa69a435bb39d128241572c
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "typescript": "^5"

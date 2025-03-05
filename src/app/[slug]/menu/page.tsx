@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 
 import { db } from "@/lib/prisma";
 
+import RestaurantHeader from "./components/header";
+
 interface RestaurantMenuPageProps {
   params: Promise<{ slug: string }>;
-  searachParams: Promise<{ consumptionMethod: string }>;
+  searchParams: Promise<{ consumptionMethod: string }>;
 }
 
 const isConsumptionMethodValid = (consumptionMethod: string) => {
@@ -13,18 +15,21 @@ const isConsumptionMethodValid = (consumptionMethod: string) => {
 
 const RestaurantMenuPage = async ({
   params,
-  searachParams,
+  searchParams,
 }: RestaurantMenuPageProps) => {
   const { slug } = await params;
-  const { consumptionMethod } = await searachParams;
+  const { consumptionMethod } = await searchParams;
   if (!isConsumptionMethodValid(consumptionMethod)) {
-    return notFound;
+    return notFound();
   }
   const restaurant = await db.restaurant.findUnique({ where: { slug } });
+  if (!restaurant) {
+    return notFound();
+  }
   return (
-    <h1>
-      Menu{slug} {consumptionMethod}
-    </h1>
+    <div>
+      <RestaurantHeader restaurant={restaurant} />
+    </div>
   );
 };
 
